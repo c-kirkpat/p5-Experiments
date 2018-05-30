@@ -12,7 +12,7 @@
     // Make the area p5.js draws in fill up the entire window.
     createCanvas(1000, 1000)
     noFill()
-    fft = new p5.FFT()
+    fft = new p5.FFT(null, 256)
     fft.setInput(song)
     // newTriangle = new Triangle
     // newTriangle.init()
@@ -32,7 +32,7 @@
     let spectrum = fft.analyze()
     beginShape()
     for(let i = 0; i<spectrum.length; i++){
-      vertex(i, map(spectrum[i], 0, 255, height, 0))
+      vertex(i+100, map(spectrum[i], 0, 255, height, 0))
     }
     endShape()
   }
